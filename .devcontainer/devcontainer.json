@@ -1,0 +1,10 @@
+{
+    "name": "Selenium Codespace",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.9",
+    "postCreateCommand": "pip3 install selenium && sudo apt update && sudo apt install -y chromium-browser chromium-chromedriver",
+    "customizations": {
+      "vscode": {
+        "extensions": ["ms-python.python"]
+      }
+    }
+}
