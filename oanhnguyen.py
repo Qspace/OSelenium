@@ -45,7 +45,7 @@ for fruit in myFruits:
 
 
 #LOOP
-## While Loop                                     #best to use when you don't know how many times the code should run.
+## While Loop                                     #Best to use when you DON'T know how many times the code should run.
 import random                                     #Import the random module to use its functionality  
 
 dice = random.randint(1, 6)                       # Generate a random integer between 1 and 6 and store it in 'dice'  
@@ -60,15 +60,7 @@ while dice != 6:                                  # Continue rolling until a 6 i
 print('You got 6!')                               # Print a message when a 6 is rolled  
 print('You rolled', count, 'times')               # Print the total number of rolls  
 
-
-import random
-dixe=random.randint(1,10)
-print(dice)
-a=1
-
-while dice!=6:
-    dice=random.randint(1,10)
-    print(dice)
-    count+=1
-print('Congratulation')
-print('You have 10 mark in',count,'times')
+## For Loop                                       # Best to use when you know how many times the code should run.
+for i in range(10,0,-1)                           # Iterate from 10 down to 1 (exclusive of 0) with a step of -1.
+print(i)                                          # Print the current value of 'i' in each iteration.
+print('Liftoff!')
