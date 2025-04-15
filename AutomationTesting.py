@@ -33,7 +33,7 @@ try:
 
     # Update wait time and XPath for search results  
     first_result = WebDriverWait(driver, 120).until(  
-        EC.presence_of_element_located((By.XPATH, "//h3"))  # Adjust based on current structure  
+        EC.presence_of_element_located((By.XPATH, "//h3"))  # Adjust based on current structure of Google, get from the first result shown  
     )  
 
     results = driver.find_elements(By.XPATH, "//h3")  # Update this XPath as per the latest page structure  
