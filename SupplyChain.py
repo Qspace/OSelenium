@@ -41,3 +41,4 @@ print(p1.restock())     # Check to see if restocking is needed for chairs
 print(p1.sell(120))     # Attempt to sell 120 chairs, should trigger restocking  
 print(p1.restock())     # Check to see if restocking is needed for chairs
 print(p1.sell(50))     # Attempt to sell 120 chairs, should trigger restocking  
+
