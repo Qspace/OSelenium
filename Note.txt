@@ -45,7 +45,7 @@ ChromeDriver must match the version of Chromium installed. Since the Chromium ve
 
 1. **Download ChromeDriver**:
    ```bash
-   wget https://chromedriver.storage.googleapis.com/135.0.7049.84/chromedriver_linux64.zip
+   wget https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.95/linux64/chromedriver-linux64.zip
    ```
 
 2. **Extract the ChromeDriver binary**:
@@ -55,6 +55,7 @@ ChromeDriver must match the version of Chromium installed. Since the Chromium ve
 
 3. **Move ChromeDriver to a directory in your PATH**:
    ```bash
+   cd chromedriver-linux64/
    sudo mv chromedriver /usr/local/bin/
    sudo chmod +x /usr/local/bin/chromedriver
    ```
