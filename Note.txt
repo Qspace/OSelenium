@@ -1,0 +1,146 @@
+### Guide: Setting Up Selenium with Chromium and ChromeDriver in Codespaces
+
+This guide will walk you through the steps to set up Selenium with Chromium and ChromeDriver in a Codespace environment.
+
+---
+
+### Prerequisites
+- **Python 3** and **pip3** are pre-installed in the Codespace.
+- Ensure you have access to the terminal in your Codespace.
+
+---
+
+### Step 1: Install Chromium
+Chromium is the browser that Selenium will automate. Install it using the following commands:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y chromium
+```
+
+Verify the installation and check the version:
+
+```bash
+chromium --version
+```
+
+Example output:
+```
+Chromium 135.0.7049.84
+```
+
+---
+
+### Step 2: Install `webdriver_manager`
+The `webdriver_manager` Python package helps manage ChromeDriver installations. Install it using `pip3`:
+
+```bash
+pip3 install webdriver-manager
+```
+
+---
+
+### Step 3: Download and Install ChromeDriver
+ChromeDriver must match the version of Chromium installed. Since the Chromium version is `135.0.7049.84`, download the corresponding ChromeDriver version.
+
+1. **Download ChromeDriver**:
+   ```bash
+   wget https://chromedriver.storage.googleapis.com/135.0.7049.84/chromedriver_linux64.zip
+   ```
+
+2. **Extract the ChromeDriver binary**:
+   ```bash
+   unzip chromedriver_linux64.zip
+   ```
+
+3. **Move ChromeDriver to a directory in your PATH**:
+   ```bash
+   sudo mv chromedriver /usr/local/bin/
+   sudo chmod +x /usr/local/bin/chromedriver
+   ```
+
+4. **Verify ChromeDriver installation**:
+   ```bash
+   chromedriver --version
+   ```
+
+   Example output:
+   ```
+   ChromeDriver 135.0.7049.84
+   ```
+
+---
+
+### Step 4: Update Your Selenium Script
+Update your Selenium script to use the installed Chromium and ChromeDriver. Below is an example script:
+
+```python
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+
+# Set up Chrome options
+options = Options()
+options.add_argument("--headless=new")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--remote-debugging-port=9222")
+options.add_argument("--disable-gpu")
+
+# Specify the Chromium binary location
+options.binary_location = "/usr/bin/chromium"
+
+# Use the installed ChromeDriver
+service = Service("/usr/local/bin/chromedriver")
+driver = webdriver.Chrome(service=service, options=options)
+
+try:
+    driver.get("https://www.example.com")
+    print("✅ Page title:", driver.title)
+finally:
+    driver.quit()
+    print("🧹 Closed browser")
+```
+
+---
+
+### Step 5: Run Your Selenium Script
+Run the script using Python:
+
+```bash
+python3 test.py
+```
+
+If everything is set up correctly, the script will launch Chromium in headless mode, navigate to the specified URL, and print the page title.
+
+---
+
+### Troubleshooting
+1. **Version Mismatch**:
+   - Ensure the Chromium version matches the ChromeDriver version.
+   - If the exact ChromeDriver version is unavailable, consider downgrading Chromium to a supported version.
+
+2. **Permission Issues**:
+   - Ensure ChromeDriver has executable permissions:
+     ```bash
+     sudo chmod +x /usr/local/bin/chromedriver
+     ```
+
+3. **Missing Dependencies**:
+   - If Chromium fails to launch, install additional dependencies:
+     ```bash
+     sudo apt-get install -y libnss3 libxss1 libappindicator1 libindicator7
+     ```
+
+---
+
+### Summary
+1. Install Chromium (`chromium-browser`).
+2. Install `webdriver_manager` (`pip3 install webdriver-manager`).
+3. Download and install the matching ChromeDriver version.
+4. Update your Selenium script to use chromium and chromedriver.
+5. Run your script with `python3`.
+
+Let me know if you encounter any issues!
+
+Similar code found with 1 license type
