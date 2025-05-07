@@ -61,6 +61,6 @@ print('You got 6!')                               # Print a message when a 6 is 
 print('You rolled', count, 'times')               # Print the total number of rolls  
 
 ## For Loop                                       # Best to use when you know how many times the code should run.
-for i in range(10,0,-1)                           # Iterate from 10 down to 1 (exclusive of 0) with a step of -1.
+for i in range(10,0,-1):                          # Iterate from 10 down to 1 (exclusive of 0) with a step of -1.
 print(i)                                          # Print the current value of 'i' in each iteration.
 print('Liftoff!')

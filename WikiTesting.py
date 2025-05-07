@@ -52,7 +52,7 @@ try:
     time.sleep(2)
 
     # Fetch and print the first 5 paragraphs or headings
-    paragraphs = content_area.find_elements(By.XPATH, ".//p | .//h2")  # Get paragraphs and headings
+    paragraphs = content_area.find_elements(By.XPATH, '//*[@id="mw-content-text"]/div[2]/div[4]/ul/li') # Get paragraphs and headings
 
     if len(paragraphs) == 0:
         print("❌ No content found!")
